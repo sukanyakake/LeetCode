@@ -1,25 +1,22 @@
 class Solution {
 public:
-    string reverseVowels(string str) {
-        string s="";
-        if(str.size()<2){
-            return str;
-        }
-
-        for(char ch:str){
-            if(ch=='A' or ch=='E' or ch=='I' or ch=='O' or ch=='U' or ch=='a' or ch=='e' or ch=='i' or  ch=='o'  or  ch=='u'){
-                s+=ch;
+    string reverseVowels(string s) {
+        int i=0;
+        int j=s.size()-1;
+        while(i<j){
+            while(i<s.size() && not(s[i]=='A' or s[i]=='E' or s[i]=='I' or s[i]=='O' or s[i]=='U' or s[i]=='a' or s[i]=='e' or s[i]=='i' or  s[i]=='o'  or  s[i]=='u')){
+            i++;
+            }
+            while(j>=0  && not(s[j]=='A' or s[j]=='E' or s[j]=='I' or s[j]=='O' or s[j]=='U' or s[j]=='a' or s[j]=='e' or s[j]=='i' or  s[j]=='o'  or  s[j]=='u')){
+            j--;
+            }
+            if(i<j) {
+                char temp=s[i];
+                s[i]=s[j];
+                s[j]=temp;
+                i++;j--;
             }
         }
-        reverse(s.begin(),s.end());
-        int j=0;
-        for(int i=0;i<str.size();i++){
-            char ch=str[i];
-            if(ch=='A' or ch=='E' or ch=='I' or ch=='O' or ch=='U' or ch=='a' or ch=='e' or ch=='i' or  ch=='o'  or  ch=='u'){
-                str[i]=s[j];
-                j++;
-            }
-        }
-        return str;
+        return s;
     }
 };
