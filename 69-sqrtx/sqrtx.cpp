@@ -11,7 +11,6 @@ public:
             }else{
                 high=mid-1;
             }
-            cout<<low<<" "<<high<<" "<<mid<<endl;
         }
         return ans;
     }
