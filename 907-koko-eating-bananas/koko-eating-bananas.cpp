@@ -4,6 +4,7 @@ public:
         long long res=0;
         for(int i=0;i<piles.size();i++){
             res+=ceil(piles[i]/double(mid));
+            if(res>h) return false;
         }
         return res<=h;
     }
