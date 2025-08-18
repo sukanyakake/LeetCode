@@ -5,11 +5,10 @@ public:
         for(int i=0;i<piles.size();i++){
             res+=ceil(piles[i]/double(mid));
         }
-        if(res<=h) return true;
-        return false;
+        return res<=h;
     }
     int minEatingSpeed(vector<int>& piles, int h) {
-        long long high=accumulate(piles.begin(),piles.end(),0ll);
+        long long high=*max_element(piles.begin(),piles.end());
         long long low=1;
         int ans=0;
         while(low<=high){
