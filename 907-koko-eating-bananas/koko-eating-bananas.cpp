@@ -3,7 +3,7 @@ public:
     bool okay(long long mid,int h,vector<int> piles){
         long long res=0;
         for(int i=0;i<piles.size();i++){
-            res+=ceil(piles[i]/double(mid));
+            res+=(piles[i]+mid-1)/mid;
             if(res>h) return false;
         }
         return res<=h;
