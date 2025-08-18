@@ -12,7 +12,7 @@ public:
         long long low=1;
         int ans=0;
         while(low<=high){
-            long long mid=low+(high-low)/2;
+            int mid=low+(high-low)/2;
             bool z=okay(mid,h,piles);
             if(z){
                 ans=mid;
