@@ -13,8 +13,7 @@ public:
         int ans=0;
         while(low<=high){
             long long mid=low+(high-low)/2;
-            bool z=okay(mid,h,piles);
-            if(z){
+            if(okay(mid,h,piles)){
                 ans=mid;
                 high=mid-1;
             }else{
