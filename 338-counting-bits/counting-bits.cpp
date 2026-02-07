@@ -1,19 +1,12 @@
 class Solution {
 public:
-    int findBits(int i){
-        int count=0;
-        while(i>0){
-            if(i%2!=0)    count+=1;
-            i=i/2;
-        }
-        return count;
-    }
     vector<int> countBits(int n) {
-        vector<int> ans(n+1);
-        for(int i=0;i<=n;i++){
-            ans[i]=findBits(i);
+        vector<int> ans(n+1,0);
+        int offset=1;
+        for(int i=1;i<=n;i++){
+            if(offset*2==i) offset=i;
+            ans[i]=1+ans[i-offset];
         }
         return ans;
     }
-
 };
