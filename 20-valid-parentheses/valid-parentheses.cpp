@@ -1,23 +1,22 @@
 class Solution {
 public:
-    bool isValid(string s) {
-        stack<char> can;
+    bool isValid(string str) {
         map<char,char> m;
-        m['(']=')';
-        m['{']='}';
-        m['[']=']';
-        can.push('k');
-        for(auto ch:s){
-            char t=can.top();
-            if(m[t]==ch){
-                can.pop();
+        stack<char> s;
+        m[')']='(';
+        m['}']='{';
+        m[']']='[';
+        for(auto k:str){
+            if(k=='{' || k=='[' || k=='(' ){
+                s.push(k);
             }else{
-                can.push(ch);
+                if(s.empty()||s.top()!=m[k]){
+                    return false;
+                }
+                s.pop();
             }
         }
-        if(can.top()=='k'){
-            return true;
-        }
-        return false;
+            return s.empty();
+
     }
 };
